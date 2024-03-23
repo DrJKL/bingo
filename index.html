@@ -1,40 +1,71 @@
 <!doctype html>
-<html class="no-js" lang="">
+<html class="no-js"
+      lang="">
 
 <head>
-    <meta charset="utf-8">
-    <title></title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta charset="utf-8">
+      <title></title>
+      <meta name="description"
+            content="">
+      <meta name="viewport"
+            content="width=device-width, initial-scale=1">
 
-    <meta property="og:title" content="">
-    <meta property="og:type" content="">
-    <meta property="og:url" content="">
-    <meta property="og:image" content="">
+      <meta property="og:title"
+            content="">
+      <meta property="og:type"
+            content="">
+      <meta property="og:url"
+            content="">
+      <meta property="og:image"
+            content="">
 
-    <link rel="manifest" href="site.webmanifest">
-    <link rel="apple-touch-icon" href="icon.png">
+      <link rel="manifest"
+            href="site.webmanifest">
+      <link rel="apple-touch-icon"
+            href="icon.png">
 
-    <link rel="stylesheet" href="style.css">
+      <link rel="stylesheet"
+            href="style.css">
 
-    <meta name="theme-color" content="#fafafa">
+      <meta name="theme-color"
+            content="#fafafa">
 </head>
 
 <body>
-    <div id="ui">
-        <h1>Bingo Card Generator</h1>
-        <p>Add one bingo item per line. <br /> Press ctrl/cmd + p to print</p>
-        <textarea>items, 1 per line</textarea>
-        <label>Rows</label>
-        <input type="number" placeholder="5" value=5 id="rows" />
-        <label>Columns</label>
-        <input type="number" placeholder="5" value=5 id="cols" />
-        <label>Cards</label>
-        <input type="number" placeholder="10" value=10 id="cards" />
-        <button onClick={generate()}>create cards</button>
-    </div>
-    <div id="output"></div>
-    <script src="gen.js"></script>
+      <div id="ui">
+            <h1>Bingo Card Generator</h1>
+            <p>Add one bingo item per line. <br /> Press ctrl/cmd + p to print
+            </p>
+            <textarea>items, 1 per line</textarea>
+            <div class="ui-controls">
+                  <label>Rows
+                        <input type="number"
+                               placeholder="5"
+                               value=5
+                               id="rows" />
+                  </label>
+
+                  <label>Columns
+                        <input type="number"
+                               placeholder="5"
+                               value=5
+                               id="cols" />
+                  </label>
+
+                  <label>Cards
+                        <input type="number"
+                               placeholder="10"
+                               value=10
+                               id="cards" />
+                  </label>
+
+                  <button onClick={generate()}>Create cards</button>
+            </div>
+      </div>
+      <div id="output">
+            <h1>No Cards Generated...</h1>
+      </div>
+      <script src="gen.js"></script>
 
 </body>
 

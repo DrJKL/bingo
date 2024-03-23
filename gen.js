@@ -10,25 +10,41 @@ const generate = () => {
   const cols = +document.getElementById("cols").value;
   const cards = +document.getElementById("cards").value;
 
-  if (entries.length < rows * cols) {
-    alert("not enough entries");
+  const minEntries = rows * cols;
+
+  if (entries.length < minEntries) {
+    alert(`Only ${entries.length} entries, need at least ${minEntries}`);
     return;
   }
 
   const output = [...Array(cards).keys()].map((i) => {
     const shuffled = shuffle(entries);
-    return `<div class='card'><h2>Bingo!</h2><table>
-        ${[...Array(rows).keys()]
-          .map((r) => `<tr>
-            ${[...Array(cols).keys()]
-              .map((c) => `<td>${shuffled[r * cols + c]}</td>`)
-              .join('')}
-            </tr>`
-          )
+    const headerRow = `
+<div class="card-row header-row">
+  <span>B</span>
+  <span>I</span>
+  <span>N</span>
+  <span>G</span>
+  <span>O</span>
+  <span class="card-number">${i + 1}</span>
+</div>`;
+    const cardContents = [...Array(rows).keys()]
+      .map((r) => `<div class="card-row">
+      ${[...Array(cols).keys()]
+          .map((c) => `<div class="card-box">${shuffled[r * cols + c]}</div>`)
           .join('')}
-        </table></div>`;
+      </div>`
+      )
+      .join('');
+    return `
+<div class='card' style="--row-count: ${rows}; --col-count: ${cols};">
+    <div class="card-card">
+        ${headerRow}
+        ${cardContents}
+    </div>
+</div>`;
   }).join('');
 
-  console.log(output)
+  console.log(output);
   document.getElementById("output").innerHTML = output;
 };
