@@ -36,7 +36,7 @@
             <h1>Bingo Card Generator</h1>
             <p>Add one bingo item per line. <br /> Press ctrl/cmd + p to print
             </p>
-            <textarea>items, 1 per line</textarea>
+            <textarea placeholder="Items, 1 per line"></textarea>
             <div class="ui-controls">
                   <label>Rows
                         <input type="number"
@@ -61,6 +61,7 @@
                   <span class="spacer"></span>
 
                   <button onClick={generate()}>Create cards</button>
+                  <button onClick={fillWithMinimumLines()}>Fill Entries</button>
             </div>
       </div>
       <div id="output">

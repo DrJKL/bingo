@@ -48,3 +48,22 @@ const generate = () => {
   console.log(output);
   document.getElementById("output").innerHTML = output;
 };
+
+function fillWithMinimumLines() {
+  const targetElement = document
+    .querySelector("textarea");
+
+  const rows = +document.getElementById("rows").value;
+  const cols = +document.getElementById("cols").value;
+  const entries = targetElement
+    .value.split(`\n`)
+    .map((v) => v.trim()).filter(Boolean);
+  const expectedEntryCount = rows * cols;
+  if (entries.length > expectedEntryCount) {
+    return;
+  }
+  const fillerEntries = Array.from({ length: expectedEntryCount }, (_, i) => `${i + 1}`);
+  fillerEntries.splice(0, entries.length);
+  const newEntries = [...entries, ...fillerEntries];
+  targetElement.value = newEntries.join('\n');
+}
